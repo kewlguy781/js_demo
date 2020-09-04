@@ -66,7 +66,7 @@ let state = {
   // Delete a game from the list
 function destroyGame(index){
     console.log("destroy game")
-    let gameDeleted = games.splice(index, 1)
+    games.splice(index, 1)
     render();
 
 }
