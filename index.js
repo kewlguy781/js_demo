@@ -41,7 +41,6 @@ let state = {
         game.platform = platform;
 
         console.log(game)
-
         games.push(game)
 
         render();
@@ -53,27 +52,19 @@ let state = {
 
         console.log("edit game")
         let title = prompt("Enter Name of the game");
-        console.log(games[index].title)
         games[index].title = title;
-        console.log(games[index].title)
 
         let platform = prompt("Enter Name of the platform of the game");
         games[index].platform = platform;
 
         render();
   }
-
   // Delete a game from the list
 function destroyGame(index){
     console.log("destroy game")
     games.splice(index, 1)
     render();
-
 }
-
-
-
-
   //Rendering the main part
   function render() {
     htmlString = `<div>
