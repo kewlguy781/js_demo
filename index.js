@@ -1,5 +1,6 @@
 
 
+// Commenting this out as its already populated via demo.js
 // let games = [
 //     {title: "Super Mario Brother", platform:"Nintendo"},
 //     {title: "Super Mario World", platform:"Super Nintendo"},
@@ -14,13 +15,15 @@ let state = {
   };
 
   // List games
-  
+
   // Rendering all information into "cache" gamestring, then RETURN that will be printed
   function renderGames() {
     gamesString = "";
     state.games.forEach(function (games, index) {
       gamesString += `<div>
-      Game: ${games.title} Platform: ${games.platform} [Edit Games][Delete Game]
+      Game: ${games.title} Platform: ${games.platform} 
+      <span onclick='editGame()'>[Edit Game]</span> 
+      <span onclick='destroyGame()'>[Delete Game]</span>
       </div>`;
     });
     //THIS IS A MUST! Return this which will then be printed when called
@@ -28,10 +31,41 @@ let state = {
   }
 
   // Add a game to the list
+  function addGame(){
+        let game ={};
+
+        let title = prompt("Enter Name of the game");
+        game.title = game;
+
+        let platform = prompt("Enter Name of the platform of the game");
+        game.platform = game;
+
+        games.push(game)
+        // This return [object?]
+
+        render();
+  }
 
   // Edit a games to the list
+  function editGame(){
+// TODO Save index, edit it, render
+console.log("edit game")
+
+let title = prompt("Enter Name of the game");
+console.log(game.title)
+game.title = game;
+
+let platform = prompt("Enter Name of the platform of the game");
+game.platform = game;
+
+        render();
+  }
 
   // Delete a game from the list
+function destroyGame(){
+    console.log("destroy game")
+
+}
 
 
 
@@ -40,7 +74,8 @@ let state = {
   function render() {
     htmlString = `<div>
                   <h1>${state.pageHeader}</h1>
-                  ${renderGames()} [Add Games]
+                  ${renderGames()} 
+                  <div onclick='addGame()'>[Add Games]</div>
                   </div>`;
 
     document.getElementById("app").innerHTML = htmlString;
