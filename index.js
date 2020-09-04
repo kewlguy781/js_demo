@@ -35,10 +35,12 @@ let state = {
         let game ={};
 
         let title = prompt("Enter Name of the game");
-        game.title = game;
+        game.title = title;
 
         let platform = prompt("Enter Name of the platform of the game");
-        game.platform = game;
+        game.platform = platform;
+
+        console.log(game)
 
         games.push(game)
         // This return [object?]
@@ -52,11 +54,12 @@ let state = {
 console.log("edit game")
 
 let title = prompt("Enter Name of the game");
-console.log(game.title)
-game.title = game;
+console.log(games[0].title)
+games[0].title = title;
+console.log(games[0].title)
 
 let platform = prompt("Enter Name of the platform of the game");
-game.platform = game;
+games[0].platform = platform;
 
         render();
   }
