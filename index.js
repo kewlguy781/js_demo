@@ -22,8 +22,8 @@ let state = {
     state.games.forEach(function (games, index) {
       gamesString += `<div>
       Game: ${games.title} Platform: ${games.platform} 
-      <span onclick='editGame()'>[Edit Game]</span> 
-      <span onclick='destroyGame()'>[Delete Game]</span>
+      <span onclick='editGame(${index})'>[Edit Game]</span> 
+      <span onclick='destroyGame(${index})'>[Delete Game]</span>
       </div>`;
     });
     //THIS IS A MUST! Return this which will then be printed when called
@@ -43,30 +43,31 @@ let state = {
         console.log(game)
 
         games.push(game)
-        // This return [object?]
 
         render();
   }
 
   // Edit a games to the list
-  function editGame(){
-// TODO Save index, edit it, render
-console.log("edit game")
+  function editGame(index){
+// Save index, edit it, render
 
-let title = prompt("Enter Name of the game");
-console.log(games[0].title)
-games[0].title = title;
-console.log(games[0].title)
+        console.log("edit game")
+        let title = prompt("Enter Name of the game");
+        console.log(games[index].title)
+        games[index].title = title;
+        console.log(games[index].title)
 
-let platform = prompt("Enter Name of the platform of the game");
-games[0].platform = platform;
+        let platform = prompt("Enter Name of the platform of the game");
+        games[index].platform = platform;
 
         render();
   }
 
   // Delete a game from the list
-function destroyGame(){
+function destroyGame(index){
     console.log("destroy game")
+    let gameDeleted = games.splice(index, 1)
+    render();
 
 }
 
